@@ -11,9 +11,9 @@ sass:
 # Resume settings
 resume_avatar:                  "true"
 resume_name:                    "Phyoe Wai @ James"
-resume_title:                   "Software Engineer / Consultant / Project Manager"
+resume_title:                   "Software Engineer/Consultant/Project Manager"
 resume_contact_email:
-  "phyoe.wai@me.com"
+  "contact@phyoewai.me"
 
 # use "yes" to display the email contact button,
 # "no" to display an "I'm not looking for work" message,
@@ -34,12 +34,10 @@ resume_section_associations:    true
 # Resume social links
 # uncomment the options you wish to display, and add your own URL
 resume_social_links:
-  resume_github_url:            "https://github.com/jayhawk/jayhawk.github.io"
+  resume_github_url:            "https://github.com/jayhawk"
   resume_twitter_url:           "http://twitter.com/dr0idman"
-  # resume_dribbble_url:          "https://dribbble.com/jag"
   resume_facebook_url:          "https://www.facebook.com/phyoewai"
   resume_linkedin_url:          "https://sg.linkedin.com/in/phyoewai"
-  # resume_instagram_url:         "insert your Instagram URL here"
   resume_website_url:           "http://phyoewai.me"
 
 # Design settings
