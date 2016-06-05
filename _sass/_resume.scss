@@ -54,7 +54,6 @@
       margin: 0 0 .5rem;
 
       @include media_larger_than_mobile {
-        float: left;
         margin: 0;
       }
     }
@@ -76,7 +75,6 @@
   padding-top: .4rem;
 
   @include media_larger_than_mobile {
-    float: right;
     border-top: none;
     padding-top: 0;
   }
