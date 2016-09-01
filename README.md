@@ -1,1 +1,1 @@
-My resume based on https://github.com/jglovier/resume-template
+My résumé based on https://github.com/jglovier/resume-template
