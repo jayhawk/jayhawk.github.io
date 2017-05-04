@@ -45,7 +45,7 @@
         </div>
 
         <div class="executive-summary no-print" itemprop="description">
-          <p>Hi. My name is Phyoe Wai @ James. I am a full-stack software engineer, currently working as a software engineer at <a href="http://www.agoda.com">Agoda</a>. </p>
+          {{ site.resume_header_intro }}
         </div>
 
         {% if site.resume_looking_for_work == 'yes' %}
@@ -65,162 +65,53 @@
           <h2>Work Experience</h2>
         </header>
 
-        <!-- Duplicate these resume-item elements and edit accordingly for each job you want to add here -->
+        {% for job in site.data.experience %}
         <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
-          <h3 class="resume-item-title" itemprop="name">Agoda</h3>
-          <h4 class="resume-item-details" itemprop="description">Software Engineer &bull; April, 2017 &mdash; Present</h4>
+          <h3 class="resume-item-title" itemprop="name">{{ job.company }}</h3>
+          <h4 class="resume-item-details" itemprop="description"><span style="display: block; float:left;">{{ job.position }}</span><span style="display: block; float:right;">{{ job.duration }}</span></h4><br/>
+          <p class="resume-item-copy" style="clear: both;">{{ job.summary }}</p>
         </div><!-- end of resume-item -->
-
-        <!-- Duplicate these resume-item elements and edit accordingly for each job you want to add here -->
-        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
-          <h3 class="resume-item-title" itemprop="name">MMRD Publications, Myanmar Marketing Research and Development Ltd</h3>
-          <h4 class="resume-item-details" itemprop="description">Digital Development Manager &bull; June, 2016 &mdash; February, 2017</h4>
-          <p class="resume-item-copy">
-	  Looks after online and digital services offered by MMRD publications incluing <a href="www.yangondirectory.com" target="_blank">Yangon Directory</a>. Provides technical consultations to other departments. Most of the projects I look after can be found here at <a href="http://www.mmrdpub.com" alt="MMRD Publications website URL" target="_blank">MMRD Publications website</a>.
-          </p>
-          <ul class="resume-item-list">
-            <li>Manage a team which builds company directory website.</li>
-            <li>Train team members.</li>
-            <li>Evaluate and introduce new technology for the company.</li>
-            <li>Involve in system and software architecture, database design and planning.</li>
-            <li>Infrastructure scaling and maintenance.</li>
-            <li>SEO optimisation.</li>
-            <li>Provide technical consultation to Publications Division.</li>
-          </ul>
-
-        </div><!-- end of resume-item -->
-
-        <!-- Duplicate these resume-item elements and edit accordingly for each job you want to add here -->
-        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
-          <h3 class="resume-item-title" itemprop="name">MMRD Publications, Myanmar Marketing Research and Development Ltd</h3>
-          <h4 class="resume-item-details" itemprop="description">IT Consultant &bull; Nov, 2015 &mdash; May, 2016</h4>
-          <p class="resume-item-copy">
-            MMRD publications publishes Yangon Directory, no.1 directory in Myanmar. <br>
-            Originally recruited as a IT consultant but invovled in projects as an architect.
-            Helped to achieve 40% overall better performance for all company websites.
-            Introduced Git to move away from Subversion as former is more suitable.
-          </p>
-          <ul class="resume-item-list">
-            <li>Manage a team which provides website service to customer.</li>
-            <li>Manage a team which builds company directory website.</li>
-            <li>Train team members.</li>
-            <li>Evaluate and introduce new technology for the company.</li>
-            <li>Involve in system and software architecture, database design and planning.</li>
-          </ul>
-
-        </div><!-- end of resume-item -->
-
-        <!-- another resume item -->
-        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
-          <h3 class="resume-item-title" itemprop="name">Greenfossil Pte Ltd, Singapore</h3>
-          <h4 class="resume-item-details" itemprop="description">Senior Software Engineer &bull; Aug, 2010 &mdash; June, 2015</h4>
-          <p class="resume-item-copy">Greenfossil creates Java and Scala based software stacks for customers in Healthcare, Social Community and Education.</p>
-          <ul class="resume-item-list">
-            <li>Involve in planning, design, testing, development and deployment of various applications.</li>
-            <li>Lead, manage and train development team.</li>
-            <li>Enterprise levels training for customers.</li>
-            <li>Evaluate new web technology for the company.</li>
-          </ul>
-        </div><!-- end of resume-item -->
+        {% endfor %}
 
       </section>
       <!-- end Experience -->
       {% endif %}
 
+
       {% if site.resume_section_education %}
       <!-- begin Education -->
       <section class="content-section">
-
         <header class="section-header">
           <h2>Education</h2>
         </header>
 
-        <div class="resume-item" itemscope itemprop="alumniOf" itemtype="http://schema.org/CollegeOrUniversity">
-          <h3 class="resume-item-title" itemprop="name">Oxford Brookes University</h3>
-          <h4 class="resume-item-details" itemprop="description">B.Sc (Hons) in Information Systems & Software Engineering &bull; 2006 &mdash; 2009</h4>
+        {% for education in site.data.education %}
+        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/CollegeOrUniversity">
+          <h3 class="resume-item-title" itemprop="name">{{ education.uni }}</h3>
+          <h4 class="resume-item-details" itemprop="description"><span style="display: block; float:left;">{{ education.degree }}</span><span style="display: block; float:right;">{{ education.year }}</span></h4>
+          <h5 class="resume-item-details" itemprop="description">{{ education.awards }}</h5>
+          <p class="resume-item-copy">{{ education.summary }}</p>
         </div>
-
-        <div class="resume-item" itemscope itemprop="alumniOf" itemtype="http://schema.org/CollegeOrUniversity">
-          <h3 class="resume-item-title" itemprop="name">National University of Singapore</h3>
-          <h4 class="resume-item-details" itemprop="description">Graduate Diploma In Systems Analysis &bull; 2010 &mdash; 2011</h4>
-        </div>
-
+        {% endfor %}
       </section>
       <!-- end Education -->
       {% endif %}
 
+
       {% if site.resume_section_projects %}
       <!-- begin Projects -->
       <section class="content-section">
-
         <header class="section-header">
           <h2>Projects</h2>
         </header>
 
-        <div class="resume-item">
-          <h3 class="resume-item-title"><a href="http://www.yangondirectory.com">Yangon Directory</a></h3>
-          <h4 class="resume-item-details">Project Manager &bull; 2015 &mdash; Present</h4>
-          <p class="resume-item-copy">The Yangon Directory is the market leader, with over 80,000 listings and 7,000 advertisements, under 1,000 business headings, making it the largest and most comprehensive directory in Myanmar.</p>
+        {% for project in site.data.projects %}
+        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
+          <h3 class="resume-item-title" itemprop="name">{{ project.project }}</h3>
+          <h4 class="resume-item-details" itemprop="description"><span style="display: block; float:left;">{{ project.role }}</span><span style="display: block; float:right;">{{ project.duration }}</span></h4><br/>
+          <p class="resume-item-copy" style="clear: both;">{{ project.description }}</p>
         </div>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title"><a href="http://www.mandalaydirectory.com">Mandalay Directory</a></h3>
-          <h4 class="resume-item-details">Project Manager &bull; 2015 &mdash; Present</h4>
-          <p class="resume-item-copy">The Mandalay Directory is the market leader, with over 47,000+ listings and 7,120 advertisements, 450+ business headings.</p>
-        </div>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title"><a href="http://www.buildersguide.com.mm">Builders Guide</a></h3>
-          <h4 class="resume-item-details">Project Manager &bull; 2015 &mdash; Present</h4>
-          <p class="resume-item-copy">The Builders’ Guides for Yangon (15,000 copies) and Mandalay (10,000 copies) have been published as printed directories since 2012 and have provided users with an enriched database of suppliers to the sector, together with rich content providing tips and recommendations to all those in the building sector. This online Builders’ Guide provides valuable information on the building sector from across Myanmar nationwide.</p>
-        </div>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title">Sojourner - Integrated Church Management System</h3>
-          <h4 class="resume-item-details">Lead Developer &bull; 2010 &mdash; 2015</h4>
-          <p class="resume-item-copy">
-            Sojourner is a comprehensive and robust church management system designed to help churches who are grappling with difficult issues like PDPA, administrative workload and visibility on the congregation. <br>
-            Through an integrate set of features, Sojourner empowers church leaders with information like who is involved where, attendance of cell groups and dashboards of newcomer status. It helps administrators to easily organise people into hierarchy of ministries and cells, allows leaders to take attendance with ease and allows members to update their own particulars in a secure manner. <br>
-            Overall, Sojourner provides advanced functions for church membership management, children ministry, visitor follow up, cell group management, equipping, attendance taking, communications, AGM management and many more. It is designed to be used anytime, anywhere and on any platform - PCs, tablets and smart phones.
-          </p>
-        </div>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title">Regsys - Online Event Management System</h3>
-          <h4 class="resume-item-details">Lead Developer &bull; 2013 &mdash; 2015</h4>
-          <p class="resume-item-copy">
-            Regsys is a highly configurable online event management and booking system with sophisticated management features, comprehensive reports,
-            a versatile billing engine and payment gateway integration.
-            It allows an organization to manage events efficiently and provide better service to their clients through an intuitive user interface.
-          </p>
-        </div>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title">Synapse - Operation Support System for Healthcare</h3>
-          <h4 class="resume-item-details">Developer &bull; 2011 &mdash; 2014</h4>
-          <p class="resume-item-copy">
-            An operation support system for Healthcare which inclues single queue number queue system and appointment system.
-            It also inclues arrays of features to streamline operation in hospital.
-          </p>
-        </div>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title">FindDoctors - Doctor Online Booking System</h3>
-          <h4 class="resume-item-details">Developer &bull; 2013 &mdash; 2014</h4>
-          <p class="resume-item-copy">
-            FindDoctors is a comprehensive, mobile-enabled and scalable online appointment system that can engage customers as well as fulfill the appointment scheduling requirements of healthcare organisation.
-          </p>
-        </div>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title">iTrack - Issue Tracker</h3>
-          <h4 class="resume-item-details">Developer &bull; 2009 &mdash; 2010</h4>
-          <p class="resume-item-copy">
-            iTrack is an issue tracker that enables users to keep track of and manage issues and enhancement requests raised by customers
-            or developers. Having a comprehensive bug database helps the team to closely follow an issue from the time
-             it was raised to the time it had been implemented or fixed.
-          </p>
-        </div>
+        {% endfor %}
 
       </section>
       <!-- end Projects -->
@@ -233,21 +124,12 @@
         <header class="section-header">
           <h2>Skills</h2>
         </header>
-
+        {% for skill in site.data.skills %}
         <div class="resume-item">
-          <h4 class="resume-item-details">Code</h4>
-          <p class="resume-item-copy">Java, Groovy, Scala, Javascript, NodeJS, PHP, SQL, HTML5, CSS3</p>
+          <h4 class="resume-item-details">{{ skill.skill }}</h4>
+          <p class="resume-item-copy">{{ skill.description }}</p>
         </div>
-
-        <div class="resume-item">
-          <h4 class="resume-item-details">Databases</h4>
-          <p class="resume-item-copy">Postgres, MySQL, MSSQL</p>
-        </div>
-
-        <div class="resume-item">
-          <h4 class="resume-item-details">Tools</h4>
-          <p class="resume-item-copy">Eclipse, Git, Sbt, Sublime Text, Linux, VIM, Docker</p>
-        </div>
+        {% endfor %}
 
       </section>
       <!-- end Skills -->
@@ -261,23 +143,13 @@
           <h2>Recognition</h2>
         </header>
 
+        {% for recognition in site.data.recognitions %}
         <div class="resume-item">
-          <h3 class="resume-item-title" itemprop="award">Springfield Nuclear Power Plant</h3>
-          <h4 class="resume-item-details">Outstanding Achievement &bull; 2010</h4>
-          <p class="resume-item-copy">Awarded for stopping a nuclear meltdown, even though I also started it.</p>
+          <h3 class="resume-item-title" itemprop="award">{{ recognition.award }}</h3>
+          <h4 class="resume-item-details">{{ recognition.organisation }} &bull; {{ recognition.year }}</h4>
+          <p class="resume-item-copy">{{ recognition.summary }}</p>
         </div>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title" itemprop="award">Duff Beer Customer of the year</h3>
-          <h4 class="resume-item-details">1997 &mdash; 2001, 2003, 2008 &mdash; 2012</h4>
-          <p class="resume-item-copy">Honored by <a href="https://en.wikipedia.org/wiki/Duff_Beer">Duff Beer</a> for being an outstanding customer several years straight. Qualifications included most beer consumed at a bar, most beer purchased, and most beer ralphed.</p>
-        </div>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title" itemprop="award">Moe's Patron of the Month</h3>
-          <h4 class="resume-item-details">12/2001, 8/2004</h4>
-          <p class="resume-item-copy">Specifically this prestigious awarded twice for stopping a robber with my belly.</p>
-        </div>
+        {% endfor %}
 
       </section>
       <!-- end Recognition -->
@@ -291,11 +163,13 @@
           <h2>Associations</h2>
         </header>
 
+        {% for association in site.data.associations %}
         <div class="resume-item">
-          <h3 class="resume-item-title"><a href="http://www.mcpamyanmar.org/">Myanmar Computer Professionals Association</a></h3>
-          <h4 class="resume-item-details">Porfessional Member &bull; 2009 &mdash; Present</h4>
-          <p class="resume-item-copy">Myanmar Computer Professionals Association is the largest association of ICT professionals in Myanmar.</p>
+          <h3 class="resume-item-title"><a href="http://beerfortheworld.com">{{ association.organisation }}</a></h3>
+          <h4 class="resume-item-details">{{ association.role }} &bull; {{ association.year }}</h4>
+          <p class="resume-item-copy">{{ association.summary }}</p>
         </div>
+        {% endfor %}
 
       </section>
       <!-- end Associations -->
@@ -311,8 +185,9 @@
 
         <div class="resume-item">
           <ul class="resume-item-list">
-            <li><a href="#">Springfield Poker Club</a></li>
-            <li><a href="#">Springfield Donut Eater's User Group</a></li>
+            {% for link in site.data.links %}
+            <li><a href={{ link.url }}>{{ link.description }}</a></li>
+            {% endfor %}
           </ul>
         </div>
 

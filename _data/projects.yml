@@ -1,0 +1,20 @@
+# Projects
+- project: Yangon Directory
+  role: Project Manager
+  duration: 2015 &mdash; 2017
+  description: The Yangon Directory is the market leader, with over 80,000 listings and 7,000 advertisements, under 1,000 business headings, making it the largest and most comprehensive directory in Myanmar.
+
+- project: Sojourner - Integrated Church Management System
+  role: Lead Developer
+  duration: 2010 &mdash; 2015
+  description: Sojourner is a comprehensive and robust church management system designed to help churches who are grappling with difficult issues like PDPA, administrative workload and visibility on the congregation. Through an integrate set of features, Sojourner empowers church leaders with information like who is involved where, attendance of cell groups and dashboards of newcomer status. It helps administrators to easily organise people into hierarchy of ministries and cells, allows leaders to take attendance with ease and allows members to update their own particulars in a secure manner. Overall, Sojourner provides advanced functions for church membership management, children ministry, visitor follow up, cell group management, equipping, attendance taking, communications, AGM management and many more. It is designed to be used anytime, anywhere and on any platform - PCs, tablets and smart phones.
+
+- project: Engage - Online Event Management System
+  role: Developer
+  duration: 2011 &mdash; 2014
+  description: Engage is a highly configurable online event management and booking system with sophisticated management features, comprehensive reports, a versatile billing engine and payment gateway integration. It allows an organization to manage events efficiently and provide better service to their clients through an intuitive user interface.
+
+- project: Synapse - Operation Support System for Healthcare
+  role: Developer
+  duration: 2011 &mdash; 2014
+  description: An operation support system for Healthcare which inclues single queue number queue system and appointment system. It also inclues arrays of features to streamline operation in hospital.
