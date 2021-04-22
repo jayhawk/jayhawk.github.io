@@ -11,7 +11,7 @@ sass:
 # Resume settings
 resume_avatar:                  "true"
 resume_name:                    "Phyoe Wai @ James"
-resume_title:                   "Staff Software Engineer @ Agoda (Booking Holdings Inc)"
+resume_title:                   "Staff Software Engineer @ Agoda"
 
 # used for the contact button in _layouts/resume.html
 resume_contact_email:           "contact@phyoewai.me"
@@ -22,7 +22,7 @@ resume_contact_telephone:       "+66-903242311"
 resume_header_contact_info:     "+66-903242311 • contact@phyoewai.me"
 display_header_contact_info:    "false"
 
-resume_header_intro: "<p>Hi. My name is Phyoe Wai @ James. I am a senior software engineer currently working at <a href='http://www.agoda.com'>Agoda</a>. </p>"
+resume_header_intro: "<p>Hi. My name is Phyoe Wai @ James. I am a Staff software engineer currently working at <a href='http://www.agoda.com'>Agoda (Booking Holdings Inc)</a>. </p>"
 
 # use "yes" to display the email contact button,
 # "no" to display an "I'm not looking for work" message,
