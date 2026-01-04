@@ -1,3 +1,226 @@
----
-layout: resume
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Wai</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0d1117;
+            font-family: 'Courier New', Consolas, monospace;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.15;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #58a6ff;
+            pointer-events: none;
+        }
+
+        .code-line {
+            white-space: nowrap;
+            padding-left: 20px;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: rgba(13, 17, 23, 0.8);
+            padding: 60px 40px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #58a6ff;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+            text-shadow: 0 0 20px rgba(88, 166, 255, 0.3);
+        }
+
+        .name::before {
+            content: '> ';
+            color: #7ee787;
+        }
+
+        .role {
+            font-size: 1.5rem;
+            color: #7ee787;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: #8b949e;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .tagline::before {
+            content: '// ';
+            color: #6e7681;
+        }
+
+        .link {
+            display: inline-block;
+            padding: 12px 32px;
+            background: transparent;
+            color: #58a6ff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid #58a6ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(88, 166, 255, 0.1);
+            transition: left 0.3s ease;
+        }
+
+        .link:hover::before {
+            left: 0;
+        }
+
+        .link:hover {
+            border-color: #79c0ff;
+            color: #79c0ff;
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.3);
+        }
+
+        .status {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #21262d;
+        }
+
+        .status-line {
+            color: #6e7681;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #7ee787;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2rem;
+            }
+            
+            .role {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="code-bg" id="code-bg"></div>
+    
+    <div class="container">
+        <h1 class="name">james.wai</h1>
+        <div class="role">Backend Developer</div>
+        <p class="tagline">Building scalable systems & APIs</p>
+        <a href="https://www.linkedin.com/in/phyoewai/" target="_blank" class="link">$ connect --linkedin</a>
+        
+        <div class="status">
+            <div class="status-line">
+                <span class="status-indicator"></span>
+                Status: Open to opportunities
+            </div>
+            <div class="status-line">Location: Remote-friendly</div>
+        </div>
+    </div>
+
+    <script>
+        const codeBg = document.getElementById('code-bg');
+        
+        const codeSnippets = [
+            'def process_request(data):',
+            '    return service.handle(data)',
+            '',
+            'class APIHandler:',
+            '    def __init__(self, config):',
+            '        self.db = Database(config)',
+            '',
+            'async function fetchData(url) {',
+            '    const response = await fetch(url);',
+            '    return response.json();',
+            '}',
+            '',
+            'SELECT * FROM users WHERE active = true;',
+            '',
+            'POST /api/v1/resources',
+            'Content-Type: application/json',
+            '',
+            '{ "status": "success", "data": [...] }',
+            '',
+            'docker-compose up -d',
+            'kubectl apply -f deployment.yaml',
+            '',
+            'npm run build && npm start',
+            '',
+            'git commit -m "feat: optimize query performance"',
+            'git push origin main',
+        ];
+
+        // Fill background with code
+        const lines = Math.ceil(window.innerHeight / 25);
+        for (let i = 0; i < lines; i++) {
+            const line = document.createElement('div');
+            line.className = 'code-line';
+            line.textContent = codeSnippets[i % codeSnippets.length];
+            codeBg.appendChild(line);
+        }
+    </script>
+</body>
+</html>
